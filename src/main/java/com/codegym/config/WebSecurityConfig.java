@@ -50,11 +50,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("static/assets-admin/**","static/assets-user/**").permitAll();
+                .antMatchers("static/assets-admin/**","static/assets-user/**","static/upload/**","upload/**").permitAll();
         http
                 .authorizeRequests()
-//                .antMatchers("/resources/**", "/static/**","/static/assets-admin/**","/static/assets-user/**").permitAll()
+//                .antMatchers("/resources/**", "/static/**","/static/assets-admin/**","/static/assets-user/**","/upload/**").permitAll()
                 .antMatchers("/register").permitAll()
                 .and()
                 .authorizeRequests()

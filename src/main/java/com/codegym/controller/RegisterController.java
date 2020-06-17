@@ -10,6 +10,4 @@ public class RegisterController {
     public String register(){
         return "admin/register";
     }
-
-
 }

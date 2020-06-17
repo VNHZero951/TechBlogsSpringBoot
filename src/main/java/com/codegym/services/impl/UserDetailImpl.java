@@ -6,6 +6,8 @@ import com.codegym.services.BaseServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserDetailImpl implements BaseServices<User> {
 
@@ -14,7 +16,7 @@ public class UserDetailImpl implements BaseServices<User> {
 
 
     @Override
-    public Iterable<User> findAll() {
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
