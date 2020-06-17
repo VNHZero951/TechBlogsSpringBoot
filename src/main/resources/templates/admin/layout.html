@@ -26,6 +26,9 @@
     <link href="/assets-admin/css/app-style.css" rel="stylesheet"/>
     <!-- skins CSS-->
     <link href="/assets-admin/css/skins.css" rel="stylesheet"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
 </head>
 <body>
     <!-- start loader -->
@@ -329,13 +332,32 @@
             <script src="/assets-admin/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
             <script src="/assets-admin/plugins/jquery-knob/excanvas.js"></script>
             <script src="/assets-admin/plugins/jquery-knob/jquery.knob.js"></script>
-            <script>
-                $(function() {
-                    $(".knob").knob();
-                });
-            </script>
-            <!-- Index js -->
-            <script src="/assets-admin/js/index.js"></script>
+<!--             Index js--><script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<!--            <script src="/assets-admin/js/index.js"></script>-->
+    </th:block>
+    <th:block th:fragment="Js" >
+
+        <script src="/assets-admin/js/index.js" defer></script>
+        <script src="/assets-admin/js/jquery.min.js"></script>
+        <script src="/assets-admin/vendors/jquery-validation/dist/jquery.validate.js"  ></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/assets-admin/js/bootstrap.min.js"></script>
+        <!-- simplebar js -->
+        <script src="/assets-admin/plugins/simplebar/js/simplebar.js"></script>
+        <!-- sidebar-menu js -->
+        <script src="/assets-admin/js/sidebar-menu.js"></script>
+        <!-- loader scripts -->
+        <!--            <script src="/assets-admin/js/jquery.loading-indicator.js"></script>-->
+        <!-- Custom scripts -->
+        <script src="/assets-admin/js/app-script.js"></script>
+        <!-- Chart js -->
+        <script src="/assets-admin/plugins/Chart.js/Chart.min.js"></script>
+        <!-- Vector map JavaScript -->
+        <!--            <script src="/assets-admin/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>-->
+        <!-- Easy Pie Chart JS -->
+        <script src="/assets-admin/plugins/jquery-knob/excanvas.js"></script>
+        <script src="/assets-admin/plugins/jquery-knob/jquery.knob.js"></script>
     </th:block>
     <!--JavaScript-->
 </body>

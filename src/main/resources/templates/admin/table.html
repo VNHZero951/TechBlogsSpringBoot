@@ -1,0 +1,179 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">-->
+<!--<head th:replace="/admin/layout::header"></head>-->
+<!--<link href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">-->
+<!--<body>-->
+
+<!--&lt;!&ndash; start loader &ndash;&gt;-->
+<!--<div th:replace="/admin/layout::pageloader"></div>-->
+<!--&lt;!&ndash; end loader &ndash;&gt;-->
+<!--&lt;!&ndash; Start wrapper&ndash;&gt;-->
+<!-- <div id="wrapper">-->
+
+<!--     <div th:replace="/admin/layout::sidebar"></div>-->
+
+<!--     &lt;!&ndash;Start topbar header&ndash;&gt;-->
+<!--     <header th:replace="/admin/layout::navbar"></header>-->
+<!--     &lt;!&ndash;End topbar header&ndash;&gt;-->
+
+<!--<div class="clearfix"></div>-->
+<!--	-->
+<!--  <div class="content-wrapper">-->
+<!--    <div class="container-fluid">-->
+<!--      &lt;!&ndash; Breadcrumb&ndash;&gt;-->
+<!--     <div class="row pt-2 pb-2">-->
+<!--        <div class="col-sm-9">-->
+<!--		    <h4 class="page-title">Data Tables</h4>-->
+<!--		    <ol class="breadcrumb">-->
+<!--            <li class="breadcrumb-item"><a href="javaScript:void();">Dashtreme</a></li>-->
+<!--            <li class="breadcrumb-item"><a href="javaScript:void();">Tables</a></li>-->
+<!--            <li class="breadcrumb-item active" aria-current="page">Data Tables</li>-->
+<!--         </ol>-->
+<!--	   </div>-->
+<!--	   <div class="col-sm-3">-->
+<!--       <div class="btn-group float-sm-right">-->
+<!--        <button type="button" class="btn btn-light waves-effect waves-light"><i class="fa fa-cog mr-1"></i> Setting</button>-->
+<!--        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">-->
+<!--        <span class="caret"></span>-->
+<!--        </button>-->
+<!--        <div class="dropdown-menu">-->
+<!--          <a href="javaScript:void();" class="dropdown-item">Action</a>-->
+<!--          <a href="javaScript:void();" class="dropdown-item">Another action</a>-->
+<!--          <a href="javaScript:void();" class="dropdown-item">Something else here</a>-->
+<!--            <a href='javascript:void(0);' onclick="postContent.addNew()" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New City</span></a>-->
+<!--          <div class="dropdown-divider"></div>-->
+<!--&lt;!&ndash;          <a href="javaScript:void();" class="dropdown-item getContextSeparated link"</a>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--     </div>-->
+<!--     </div>-->
+<!--    &lt;!&ndash; End Breadcrumb&ndash;&gt;-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-12">-->
+<!--          <div class="card">-->
+<!--            <div class="card-header"><i class="fa fa-table"></i> Data Table Example</div>-->
+<!--            <div class="card-body">-->
+<!--              <div class="table-responsive">-->
+<!--              <table name="tblPostContent" id="tblPostContent" class="table table-striped table-hover  table-bordered">-->
+<!--&lt;!&ndash;                <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>Id</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>Title</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>Description</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>Image</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                </thead>&ndash;&gt;-->
+<!--              </table>-->
+<!--              </div>-->
+<!--                <div id="modalAddEdit" class="modal fade">-->
+<!--                    <div class="modal-dialog">-->
+<!--                        <div class="modal-content">-->
+<!--                            <form name="formAddEdit" id="formAddEdit">-->
+<!--                                <div class="modal-header">-->
+<!--                                    <h4 class="modal-title" id="modalTitle" name="modalTitle">Add City</h4>-->
+<!--                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+<!--                                </div>-->
+<!--                                <div class="modal-body">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label>Name</label>-->
+<!--                                        <input type="hidden" class="form-control" id="id" name="id">-->
+<!--                                        <input type="text" class="form-control" id="title" name="title">-->
+<!--                                        <input type="text" class="form-control" id="description" name="description">-->
+<!--                                        <input type="text" class="form-control" id="image" name="image">-->
+<!--                                    </div>-->
+
+
+<!--                                </div>-->
+<!--                                <div class="modal-footer">-->
+<!--                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">-->
+<!--                                    <input type="button" class="btn btn-success" value="Add" onclick="postContent.save()" >-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Row&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;start overlay&ndash;&gt;-->
+<!--		  <div class="overlay toggle-menu"></div>-->
+<!--		&lt;!&ndash;end overlay&ndash;&gt;-->
+<!--    </div>-->
+<!--    &lt;!&ndash; End container-fluid&ndash;&gt;-->
+<!--    -->
+<!--    </div>&lt;!&ndash;End content-wrapper&ndash;&gt;-->
+<!--   &lt;!&ndash;Start Back To Top Button&ndash;&gt;-->
+<!--    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>-->
+<!--    &lt;!&ndash;End Back To Top Button&ndash;&gt;-->
+
+<!--     &lt;!&ndash;Start footer&ndash;&gt;-->
+<!--     <footer th:replace="/admin/layout::footer"></footer>-->
+<!--     &lt;!&ndash;End footer&ndash;&gt;-->
+
+<!--     &lt;!&ndash;start color switcher&ndash;&gt;-->
+<!--     <div th:replace="/admin/layout::theme"></div>-->
+<!--     &lt;!&ndash;end color switcher&ndash;&gt;-->
+<!--   -->
+<!--  </div>&lt;!&ndash;End wrapper&ndash;&gt;-->
+<!--<th:block th:replace="/admin/layout::Js"></th:block>-->
+<!--&lt;!&ndash;Data Tables js&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="/assets-admin/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>&ndash;&gt;-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/dataTables.buttons.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/jszip.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/pdfmake.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/vfs_fonts.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.html5.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>-->
+<!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>-->
+<!--&lt;!&ndash;Data Tables js&ndash;&gt;-->
+<!--<script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>-->
+<!--<script>-->
+<!--    var postContent = {} || postContent;-->
+<!--    postContent.intTable = function(){-->
+<!--        $("#tblPostContent").DataTable({-->
+<!--            ajax: {-->
+<!--                url: 'http://localhost:8080/api/postContent',-->
+<!--                method: "GET",-->
+<!--                datatype: "json",-->
+<!--                dataSrc: ""-->
+<!--            },-->
+<!--            columns: [-->
+<!--                { data: "title" , name: "Name", title: "Title",orderable: true},-->
+<!--                { data: "description", name : "Code" , title: "Description"},-->
+<!--                { data: "id", name : "Action", title : "Action",sortable: false,-->
+<!--                    orderable: false ,render: function ( data, type, row, meta ) {-->
+<!--                        var str =  "<a href='javascript:;' title='edit product' onclick='products.get("+ data +")'><i class='fa fa-edit'></i></a> " +-->
+<!--                            "<a href='javascript:;' title='remove product' onclick='products.delete("+ data +")' ><i class='fa fa-trash'></i></a>"-->
+<!--                        return str ;-->
+<!--                    }-->
+<!--                }-->
+<!--            ]-->
+<!--        });-->
+<!--        // $.ajax({-->
+<!--        //     url: 'http://localhost:8080/api/postContent',-->
+<!--        //         method: "GET",-->
+<!--        //         datatype: "json",-->
+<!--        //         dataSrc: ""-->
+<!--        // }).done(-->
+<!--        //     function (data) {-->
+<!--        //         console.log(data[0].content);-->
+<!--        //     }-->
+<!--        // );-->
+<!--    };-->
+<!--</script>-->
+<!--<script>-->
+<!--    $(document).ready( function () {-->
+<!--        postContent.intTable();-->
+<!--    } );-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
