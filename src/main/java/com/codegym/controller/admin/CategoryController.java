@@ -11,8 +11,13 @@ public class CategoryController {
         return "admin/category/index";
     }
 
-    @GetMapping("/tags")
+    @GetMapping("/admin/tag")
     public String tags() {
         return "admin/tag/tag";
+    }
+
+    @GetMapping("/admin/message")
+    public String message() {
+        return "admin/message/message";
     }
 }

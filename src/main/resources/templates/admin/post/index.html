@@ -5,7 +5,7 @@
 <body>
 
 <!-- start loader -->
-<div th:replace="/admin/layout::pageloader"></div>
+<!--<div th:replace="/admin/layout::pageloader"></div>-->
 <!-- end loader -->
 <!-- Start wrapper-->
 <div id="wrapper">
@@ -28,7 +28,6 @@
                         <li class="breadcrumb-item"><a th:href="@{/admin/}">Admin Panel</a></li>
                         <li class="breadcrumb-item"><a href="javaScript:void();">Tables</a></li>
                         <a th:href="@{/admin/post}"><li class="breadcrumb-item active" aria-current="page" th:text="' /'+*{term}"></li></a>
-
                     </ol>
                 </div>
                 <div class="col-sm-3">
@@ -44,38 +43,59 @@
                         <div class="card-header"><i class="fa fa-table" th:text="*{term}"></i></div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="default-datatable" class="table table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Images</th>
-                                        <th colspan="2">Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <th:block th:each="postContents,iter : ${getPost}">
-                                            <tr>
-                                                <th th:text="${iter.index+1}"></th>
-                                                <td th:text="${postContents.title}"></td>
-                                                <td th:text="${postContents.description}"></td>
-                                                <td>
-                                                    <th:block th:if="${postContents.image}">
-                                                        <img th:src="@{/upload/__${postContents.image}__}" height="120px">
-                                                    </th:block>
-                                                </td>
-                                                <td><a th:href="@{/admin/post/edit/__${postContents.id}__ }">Edit</a></td>
-                                                <td><a th:href="@{/admin/post/delete/__${postContents.id}__ }">Delete</a></td>
-                                            </tr>
-                                        </th:block>
-                                    </tbody>
-                                </table>
+                                    <table id="default-datatable" class="table table-bordered overflow-auto">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <a th:href="@{/admin/post(page=${0},size=${50},sort=${'id'}+',asc')}">
+                                                    #</a>
+                                            </th>
+                                            <th>
+                                                <a th:href="@{/admin/post(page=${0},size=${50},sort=${'title'}+',asc')}">
+                                                    Title</a>
+                                            </th>
+<!--                                            <th>Category</th>-->
+                                            <th>
+                                                <a th:href="@{/admin/post(page=${0},size=${50},sort=${'categories_id'}+',asc')}">
+                                                    Category</a>
+                                            </th>
+<!--                                            <th style="overflow: auto !important;">Description</th>-->
+                                            <th>Images</th>
+                                            <th colspan="2">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <th:block th:each="postContents,iter : ${page.content}">
+                                                <tr>
+                                                    <th th:text="${iter.index+1}"></th>
+                                                    <td th:text="${postContents.title}"></td>
+                                                    <td th:text="${postContents.getCategory().getTitle()}"></td>
+<!--                                                    <td class="overflow-auto" th:text="${postContents.description}"></td>-->
+                                                    <td>
+                                                        <th:block th:if="${postContents.image}">
+                                                            <img th:src="@{/upload/__${postContents.image}__}" height="120px">
+                                                        </th:block>
+                                                    </td>
+                                                    <td><a th:href="@{/admin/post/edit/__${postContents.id}__ }">Edit</a></td>
+                                                    <td><a th:href="@{/admin/post/delete/__${postContents.id}__ }">Delete</a></td>
+                                                </tr>
+                                            </th:block>
+                                        </tbody>
+                                    </table>
+                                    <div class="pagination-div pagination">
+                                        <span class="page-item" th:if="${page.hasPrevious()}"><a class="page-link" th:href="@{/admin/post(page=${page.number-1},size=${page.size})}">Previous</a></span>
+                                            <th:block th:each="i: ${#numbers.sequence(0, page.totalPages - 1)}">
+                                                <span th:if="${page.number == i}" class="selected page-link">[[${i}+1]]</span>
+                                                <span th:unless="${page.number == i}"><a class="page-link" th:href="@{/admin/post(page=${i},size=${page.size})}">[[${i}+1]]</a></span>
+                                            </th:block>
+                                        <span class="page-item" th:if="${page.hasNext()}"><a class="page-link" th:href="@{/admin/post(page=${page.number+1},size=${page.size})}">Next</a></span>
+                                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
             <!--start overlay-->
             <div class="overlay toggle-menu"></div>
@@ -90,7 +110,7 @@
 <!--End Back To Top Button-->
 
 <!--Start footer-->
-<footer th:replace="/admin/layout::footer"></footer>
+<!--<footer th:replace="/admin/layout::footer"></footer>-->
 <!--End footer-->
 
 <!--start color switcher-->
