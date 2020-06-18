@@ -21,4 +21,7 @@ public interface TagRepository  extends JpaRepository<Tag,Long> {
     @Modifying
     @Query("select c from Tag c where c.isDelete=0")
     List<Tag> findAll();
+
+    @Query(value="select tags.* from posts inner join post_tags on posts.id=post_tags.post_id inner join tags on tags.id=post_tags.tag_id where posts.id= :idPostContent",nativeQuery=true)
+    List<Tag> findTagByContentId(@Param("idPostContent") Long idPostContent);
 }

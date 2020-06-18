@@ -52,17 +52,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("static/assets-admin/**","static/assets-user/**","static/upload/**","upload/**").permitAll();
-        http
-                .authorizeRequests()
-//                .antMatchers("/resources/**", "/static/**","/static/assets-admin/**","/static/assets-user/**","/upload/**").permitAll()
-                .antMatchers("/register").permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/admin/**").access("hasRole('ADMIN')")
+                .antMatchers("/**").permitAll()
+//                .antMatchers("static/assets-admin/**","static/assets-user/**","static/upload/**","upload/**").permitAll();
+//        http
+//                .authorizeRequests()
+////                .antMatchers("/resources/**", "/static/**","/static/assets-admin/**","/static/assets-user/**","/upload/**").permitAll()
+//                .antMatchers("/register").permitAll()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/").permitAll()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .and()
                 .formLogin()
                 .loginPage("/login")

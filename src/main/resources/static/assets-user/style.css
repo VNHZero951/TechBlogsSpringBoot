@@ -1922,7 +1922,8 @@ input:focus {
   border-radius: 0; }
   .form-control:focus {
     box-shadow: none;
-    background-color: #393c3d; }
+    background-color: #393c3d;
+    color:white;}
 
 select.form-control {
   -webkit-appearance: none;

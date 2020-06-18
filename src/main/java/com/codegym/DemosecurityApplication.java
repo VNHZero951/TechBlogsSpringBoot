@@ -2,6 +2,7 @@ package com.codegym;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.server.MimeMappings;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -28,15 +29,4 @@ public class DemosecurityApplication {
         return filterRegistrationBean;
     }
 
-//    @Bean
-//    public EmbeddedServletContainerFactory embeddedServletContainerFactory() {
-//        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory("/app", 8080) {
-//            @Override
-//            protected void configureContext(Context context, ServletContextInitializer[] initializers) {
-//                context.setDocBase("/path/to/your/docbase");
-//                super.configureContext(context, initializers);
-//            }
-//        };
-//        return factory;
-//    }
 }
