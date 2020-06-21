@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.util.List;
 @RestController
 @RequestMapping("/api")
@@ -43,7 +44,7 @@ public class CategoryRestController {
     }
 
     @PutMapping(value = "/category/{id}")
-    public ResponseEntity<Category> updateCategory(@PathVariable("id") long id, @RequestBody Category category) {
+    public ResponseEntity<Category> updateCategory(@Valid @PathVariable("id") long id, @RequestBody Category category) {
 
         Category categorySeviceById = categorySevice.findById(id);
 

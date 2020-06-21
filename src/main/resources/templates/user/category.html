@@ -148,6 +148,7 @@
                                     <span class="page-item" th:if="${tools.hasNext()}"><a class="page-link" th:href="@{/category/3/(page=${tools.number + 1})}">Next</a></span>
                                 </ul>
                             </div>
+                            <div th:case="*"></div>
                         </div>
                     </nav>
                 </div>

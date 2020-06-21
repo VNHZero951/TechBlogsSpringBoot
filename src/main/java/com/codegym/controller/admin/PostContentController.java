@@ -23,6 +23,7 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -98,7 +99,7 @@ public class PostContentController extends AdminBaseController {
         return modelAndView;
     }
     @PostMapping("/post/add")
-    public ModelAndView saveAddForm(HttpServletRequest request,@ModelAttribute("post") Post post,@RequestParam("tags")Long[] listTag){
+    public ModelAndView saveAddForm(HttpServletRequest request,@Valid @ModelAttribute("post") Post post,@RequestParam("tags")Long[] listTag){
         //
         List<Category> categoryList = categorySevice.findAll();
         //
@@ -165,7 +166,7 @@ public class PostContentController extends AdminBaseController {
         return  modelAndView;
     }
     @PostMapping("/post/edit")
-    public ModelAndView saveEditForm(HttpServletRequest request,@ModelAttribute("post") Post post,@RequestParam("tags")Long[] listTag){
+    public ModelAndView saveEditForm(HttpServletRequest request,@Valid @ModelAttribute("post") Post post, @RequestParam("tags")Long[] listTag){
         //
         String uploadRootPath = request.getServletContext().getRealPath("upload");
         System.out.println("uploadRootPath=" + uploadRootPath);

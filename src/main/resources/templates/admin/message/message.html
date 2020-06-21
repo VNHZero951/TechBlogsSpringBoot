@@ -210,7 +210,7 @@
     }
     messages.initPostContent = function(){
         $.ajax({
-            url : "http://localhost:8080/api/postContent/",
+            url : "http://localhost:8080/api/postContent",
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -254,9 +254,9 @@
 
                 console.log(messagesObj)
                 var postContentObj = {};
-                // postContentObj.id = $("#postContentObj").val();
+                postContentObj.id = $("#postContent").val();
                 postContentObj.id = $("#postContent option:selected").html();
-                messagesObj.postContent = postContentObj;
+                messagesObj.post = postContentObj;
                 //
                 $.ajax({
                     url: "http://localhost:8080/api/messages/",
@@ -292,7 +292,7 @@
                 var postContentObj = {};
                 postContentObj.id = $("#postContentObj").val();
                 postContentObj.id = $("#postContent option:selected").html();
-                messagesObj.postContent = postContentObj;
+                messagesObj.post = postContentObj;
 
                 $.ajax({
                     url: "http://localhost:8080/api/messages/" + messagesObj.id,
@@ -350,4 +350,4 @@
     });
 </script>
 </body>
-</html>
+</html>s

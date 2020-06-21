@@ -41,7 +41,7 @@ public class UserCategoryController {
 
     @GetMapping("/{category}")
     public ModelAndView tech(@RequestParam(defaultValue = "0") int page,@PathVariable("category") String category){
-        ModelAndView modelAndView = new ModelAndView("/user/category");
+        ModelAndView modelAndView = new ModelAndView("user/category");
         modelAndView.addObject("layout",categoryRepository.findAll());
         switch (category)
         {

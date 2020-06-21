@@ -107,8 +107,8 @@
                                 </div>
                                 <div class="col-9">
                                     <input class="form-control" type="text"
-                                           name="title" id="title" minlength="3" required maxlength="20"
-                                           placeholder="Title">
+                                           name="title" id="title"
+                                           placeholder="Title" required minlength="3" maxlength="20">
                                 </div>
                             </div>
 
@@ -346,6 +346,17 @@
         category.init();
     } );
 </script>
-
+<script>
+        $.ajax({
+            url: 'http://localhost:8080/api/postContent',
+                method: "GET",
+                datatype: "json",
+                dataSrc: ""
+        }).done(
+            function (data) {
+                console.log(data[0].content);
+            }
+        );
+</script>
 </body>
 </html>

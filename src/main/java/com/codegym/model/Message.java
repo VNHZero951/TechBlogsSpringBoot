@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Entity
 @Table(name = "messages")
@@ -16,7 +17,7 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+
     private String name;
     @Email(message = "Email should be valid")
     private String email;
@@ -38,7 +39,7 @@ public class Message {
     }
 
     @Column(columnDefinition="DATE")
-    private LocalDateTime date;
+    private LocalDate date;
 
     public Long getId() {
         return id;
@@ -80,11 +81,11 @@ public class Message {
         this.isDelete = isDelete;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }

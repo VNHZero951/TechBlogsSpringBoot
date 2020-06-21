@@ -34,11 +34,6 @@ public class MainController {
         return "admin/index";
     }
 
-    @GetMapping("/contact")
-    public String contact() {
-        return "user/contact";
-    }
-
     @GetMapping("/403")
     public String accessDenied() {
         return "error/pages-403";

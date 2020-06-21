@@ -45,4 +45,9 @@ public class PostContentServiceImpl implements PostServices {
     public Post findId() {
         return postRepository.findId();
     }
+
+    @Override
+    public List<Post> findCategory(Long idC) {
+        return postRepository.findCategory(idC);
+    }
 }

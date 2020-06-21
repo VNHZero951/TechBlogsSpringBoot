@@ -11,6 +11,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -28,6 +29,8 @@ public class Post {
     @Column(nullable = false,columnDefinition="varchar(500)")
     @NotNull
     @NotEmpty
+    @Size(min = 5, max = 30, message
+            = "Title min 5 characters and max 30")
     private String title;
 
     @ColumnDefault("0")
@@ -41,11 +44,15 @@ public class Post {
     @Column(nullable = false,columnDefinition="LONGTEXT")
     @NotNull
     @NotEmpty
+    @Size(min = 5, max = 5000, message
+            = "description min 5 characters and max 5000")
     private String description;
 
     @Column(nullable = false,columnDefinition="LONGTEXT")
     @NotNull
     @NotEmpty
+    @Size(min = 5, max = 5000, message
+            = "Content min 5 characters and max 5000")
     private String content;
 
     private String image;
