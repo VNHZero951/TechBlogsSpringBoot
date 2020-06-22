@@ -2,6 +2,7 @@ package com.codegym.controller.user;
 
 import com.codegym.model.Post;
 import com.codegym.model.Tag;
+import com.codegym.repository.CategoryRepository;
 import com.codegym.repository.PostRepository;
 import com.codegym.services.impl.CategorySeviceImpl;
 import com.codegym.services.impl.MessageServiceImpl;
@@ -42,6 +43,9 @@ public class UserController {
     private CategorySeviceImpl categoryService;
     @Autowired
     private MessageServiceImpl messageService;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
 //    @Autowired
 //    private ContactSevice contactSevice;
@@ -213,7 +217,7 @@ public class UserController {
 
             listMoi.add(category.get(1));
         }
-
+        modelAndView.addObject("layout",categoryRepository.findAll());
         modelAndView.addObject("postContent", postContents);
         modelAndView.addObject("tag",tagList);
         modelAndView.addObject("postCate",listMoi);

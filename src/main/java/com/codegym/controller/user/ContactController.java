@@ -44,6 +44,7 @@ public class ContactController {
     public ModelAndView saveMessageContact(@Valid @ModelAttribute("contact") Contact contact, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView("user/contact");
         modelAndView.addObject("contact", new Contact());
+        modelAndView.addObject("layout",categoryRepository.findAll());
         if (bindingResult.hasFieldErrors()) {
             return modelAndView;
         } else {
