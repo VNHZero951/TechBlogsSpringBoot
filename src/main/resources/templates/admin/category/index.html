@@ -253,7 +253,6 @@
         if ($("#formAddEdit")) {
             if ($('#id').val() == 0) {
                 var categoryObj = {};
-                categoryObj.id = $('#id').val();
                 categoryObj.title = $('#title').val();
 
 
@@ -273,7 +272,6 @@
                     done: function () {
                         console.log("POST DONE");
                         $('#modalAddEdit').modal('hide');
-
                         $("#tblCategory").DataTable().ajax.reload();
                     },
                     success: function (data) {
@@ -281,7 +279,6 @@
                         $('#modalAddEdit').modal('hide');
                         alertify.success('Created Success');
                         $("#tblCategory").DataTable().ajax.reload();
-
                     }
                 });
             } else {
