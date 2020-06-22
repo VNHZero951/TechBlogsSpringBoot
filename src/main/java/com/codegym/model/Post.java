@@ -29,7 +29,7 @@ public class Post {
     @Column(nullable = false)
     @NotNull
     @NotEmpty
-    @Size(min = 5, max = 30, message
+    @Size(min = 5, message
             = "Title min 5 characters and max 30")
     private String title;
 
