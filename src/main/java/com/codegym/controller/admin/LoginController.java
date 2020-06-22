@@ -25,18 +25,18 @@ public class LoginController{
     @Autowired
     private UserDetailImpl userDetail;
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public ModelAndView getLogin(){
         ModelAndView modelAndView = new ModelAndView("admin/login");
         return modelAndView ;
     }
-    @PostMapping("/login")
+    @PostMapping("login")
     public ModelAndView postLogin(){
-        ModelAndView modelAndView = new ModelAndView("/admin/login");
+        ModelAndView modelAndView = new ModelAndView("admin/login");
         return modelAndView;
     }
 
-    @GetMapping("/logout")
+    @GetMapping("logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
@@ -44,14 +44,14 @@ public class LoginController{
         }
         return "redirect:/";
     }
-    @GetMapping("/admin/profile/{id}")
+    @GetMapping("admin/profile/{id}")
     public ModelAndView getProfile(@PathVariable long id){
         User users = userDetail.findById(id);
         ModelAndView modelAndView = new ModelAndView("admin/profile");
         modelAndView.addObject("profile",users);
         return modelAndView;
     }
-    @GetMapping("/admin/layout/{id}")
+    @GetMapping("admin/layout/{id}")
     public ModelAndView getLayout(@PathVariable long id){
         User users = userDetail.findById(id);
         ModelAndView modelAndView = new ModelAndView("admin/layout");

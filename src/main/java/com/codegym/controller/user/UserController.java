@@ -47,9 +47,9 @@ public class UserController {
 //    @Autowired
 //    private ContactSevice contactSevice;
 
-    @GetMapping("/")
+    @GetMapping()
     public ModelAndView dashboard(@RequestParam(defaultValue = "0") int page){
-        ModelAndView modelAndView = new ModelAndView("/user/index");
+        ModelAndView modelAndView = new ModelAndView("user/index");
         List<Post> postContentList = postRepository.findPostLimit();
 
         List<Post> contentList =postRepository.findCategoriesById();
@@ -183,10 +183,10 @@ public class UserController {
 //        }
 //        return "redirect:/";
 //    }
-    @GetMapping("/view/{id}")
+    @GetMapping("view/{id}")
     public ModelAndView dashboard1(@PathVariable("id") Long id){
 
-        ModelAndView modelAndView = new ModelAndView("/user/single-post");
+        ModelAndView modelAndView = new ModelAndView("user/single-post");
 
         Post postContents = postContentService.findById(id);
         postContents.setNumberView(postContents.getNumberView()+1);
