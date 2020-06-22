@@ -47,7 +47,7 @@ public class UserController {
 //    @Autowired
 //    private ContactSevice contactSevice;
 
-    @GetMapping()
+    @GetMapping("/")
     public ModelAndView dashboard(@RequestParam(defaultValue = "0") int page){
         ModelAndView modelAndView = new ModelAndView("user/index");
         List<Post> postContentList = postRepository.findPostLimit();
