@@ -2,29 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="admin/layout::header"></head>
-<link href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 <!-- JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 <!-- CSS -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 <!-- Default theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 <!-- Semantic UI theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
 <!-- Bootstrap theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 <!--
     RTL version
 -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
 <!-- Default theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
 <!-- Semantic UI theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
 <!-- Bootstrap theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
 <body>
 
 <!-- start loader -->
@@ -162,14 +162,14 @@
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>-->
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>-->
 <!--Data Tables js-->
-<script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 <script>
     var category = {} || category;
     category.intTable = function() {
         $("#tblCategory").DataTable({
             ajax: {
-                // url: 'http://localhost:8080/api/category',
+                // url: 'https://localhost:8080/api/category',
                 url: 'https://techblogsvn.herokuapp.com/api/category',
                 method: "GET",
                 datatype: "json",
@@ -192,7 +192,7 @@
     };
     category.initCategory = function(){
         $.ajax({
-            // url : "http://localhost:8080/api/category/",
+            // url : "https://localhost:8080/api/category/",
             url: 'https://techblogsvn.herokuapp.com/api/category',
             method : "GET",
             dataType : "json",
@@ -234,7 +234,7 @@
     category.get = function (id) {
         console.log('get:' + id);
         $.ajax({
-            // url : "http://localhost:8080/api/category/" + id,
+            // url : "https://localhost:8080/api/category/" + id,
             url: 'https://techblogsvn.herokuapp.com/api/category',+id
             method : "GET",
             dataType : "json",
@@ -264,7 +264,7 @@
                 // messagesObj.postContent = postContentObj;
 
                 $.ajax({
-                    // url: "http://localhost:8080/api/category/",
+                    // url: "https://localhost:8080/api/category/",
                     url: 'https://techblogsvn.herokuapp.com/api/category',
                     method: "POST",
                     dataType: "json",
@@ -296,7 +296,7 @@
                 // messagesObj.postContent = postContentObj;
 
                 $.ajax({
-                    // url: "http://localhost:8080/api/category/" + categoryObj.id,
+                    // url: "https://localhost:8080/api/category/" + categoryObj.id,
                     url: 'https://techblogsvn.herokuapp.com/api/category' + categoryObj.id,
                     method: "PUT",
                     dataType: "json",
@@ -327,7 +327,7 @@
             callback: function (result) {
                 if(result){
                     $.ajax({
-                        // url : "http://localhost:8080/api/category/" + id,
+                        // url : "https://localhost:8080/api/category/" + id,
                         url: 'https://techblogsvn.herokuapp.com/api/category'+id,
                         method: "DELETE",
                         dataType : "json",
@@ -354,7 +354,7 @@
 </script>
 <script>
         $.ajax({
-            // url: 'http://localhost:8080/api/postContent',
+            // url: 'https://localhost:8080/api/postContent',
             url: 'https://techblogsvn.herokuapp.com/api/postContent',
 
                 method: "GET",
