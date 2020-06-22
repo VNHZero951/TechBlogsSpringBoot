@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class CategoryController {
+public class AdminController {
 
     @GetMapping("admin/category")
     public String index() {
@@ -14,6 +14,10 @@ public class CategoryController {
     @GetMapping("admin/tag")
     public String tags() {
         return "admin/tag/tag";
+    }
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin/index";
     }
 
     @GetMapping("admin/message")

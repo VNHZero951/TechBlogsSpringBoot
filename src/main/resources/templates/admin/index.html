@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="/admin/layout::header"></head>
+<head th:replace="admin/layout::header"></head>
 
 <body>
 
    <!-- start loader -->
-   <div th:replace="/admin/layout::pageloader"></div>
+   <div th:replace="admin/layout::pageloader"></div>
    <!-- end loader -->
 
 <!-- Start wrapper-->
  <div id="wrapper">
  
- <div th:replace="/admin/layout::sidebar"></div>
+ <div th:replace="admin/layout::sidebar"></div>
 
      <!--Start topbar header-->
-     <header th:replace="/admin/layout::navbar"></header>
+     <header th:replace="admin/layout::navbar"></header>
      <!--End topbar header-->
 
 <div class="clearfix"></div>
@@ -651,16 +651,16 @@
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	<footer th:replace="/admin/layout::footer"></footer>
+	<footer th:replace="admin/layout::footer"></footer>
 	<!--End footer-->
 	
 	<!--start color switcher-->
-     <div th:replace="/admin/layout::theme"></div>
+     <div th:replace="admin/layout::theme"></div>
     <!--end color switcher-->
   
   </div><!--End wrapper-->
 
-  <th:block th:replace="/admin/layout::Js"></th:block>
+  <th:block th:replace="admin/layout::Js"></th:block>
 
 </body>
 </html>
