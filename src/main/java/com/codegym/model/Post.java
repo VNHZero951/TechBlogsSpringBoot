@@ -26,7 +26,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false,columnDefinition="varchar(500)")
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
     @Size(min = 5, max = 30, message
@@ -41,14 +41,14 @@ public class Post {
     @Column(nullable = false)
     private Long numberLike;
 
-    @Column(nullable = false,columnDefinition="LONGTEXT")
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
     @Size(min = 5, max = 5000, message
             = "description min 5 characters and max 5000")
     private String description;
 
-    @Column(nullable = false,columnDefinition="LONGTEXT")
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
     @Size(min = 5, max = 5000, message
@@ -57,7 +57,6 @@ public class Post {
 
     private String image;
 
-    @Column(columnDefinition="DATETIME")
     private LocalDateTime Date;
 
     @Transient

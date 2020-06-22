@@ -50,5 +50,4 @@ public class DemosecurityApplication {
 
         return mailSender;
     }
-
 }
