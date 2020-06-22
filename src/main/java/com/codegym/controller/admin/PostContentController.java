@@ -239,7 +239,7 @@ public class PostContentController extends AdminBaseController {
             }
         }
 
-        ModelAndView modelAndView = new ModelAndView("/admin/post/add");
+        ModelAndView modelAndView = new ModelAndView("admin/post/add");
         modelAndView.addObject("addPost",post);
         modelAndView.addObject("categoryList",categorySevice.findAll());
         modelAndView.addObject("action",ACTION_EDIT);
@@ -275,7 +275,7 @@ public class PostContentController extends AdminBaseController {
             return  modelAndView;
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error/pages-404");
+            ModelAndView modelAndView = new ModelAndView("error/pages-404");
             return modelAndView;
         }
 
@@ -296,7 +296,7 @@ public class PostContentController extends AdminBaseController {
             modelAndView.addObject("title",TITLE_DELETE);
             return modelAndView;
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error/pages-404");
+            ModelAndView modelAndView = new ModelAndView("error/pages-404");
             return modelAndView;
         }
     }

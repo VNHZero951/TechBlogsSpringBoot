@@ -29,7 +29,7 @@ public class ContactController {
     @GetMapping("/contact")
     public ModelAndView contact() {
 
-        ModelAndView modelAndView = new ModelAndView("/user/contact");
+        ModelAndView modelAndView = new ModelAndView("user/contact");
         modelAndView.addObject("layout",categoryRepository.findAll());
         modelAndView.addObject("contact", new Contact());
         return modelAndView;
@@ -42,7 +42,7 @@ public class ContactController {
 
     @PostMapping("/contact")
     public ModelAndView saveMessageContact(@Valid @ModelAttribute("contact") Contact contact, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView("/user/contact");
+        ModelAndView modelAndView = new ModelAndView("user/contact");
         modelAndView.addObject("contact", new Contact());
         if (bindingResult.hasFieldErrors()) {
             return modelAndView;

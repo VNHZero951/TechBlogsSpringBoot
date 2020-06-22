@@ -182,7 +182,7 @@ public class UserController {
 //        }
 //        return "redirect:/";
 //    }
-    @GetMapping("view/{id}")
+    @GetMapping("/view/{id}")
     public ModelAndView dashboard1(@PathVariable("id") Long id){
 
         ModelAndView modelAndView = new ModelAndView("user/single-post");
