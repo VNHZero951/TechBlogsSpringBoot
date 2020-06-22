@@ -118,7 +118,7 @@
                                         <div class="form-group row ">
                                             <label class="control-label col-md-3 col-sm-3 ">Current Image</label>
                                             <div class="col-md-9 col-sm-9 ">
-                                                <input type="hidden" th:field="*{image}" class="form-control">
+                                                <input type="hidden" th:field="*{image}" accept="image/*" class="form-control">
                                                 <img th:src="@{/upload/__*{image}__}" class="image" height="120">
                                             </div>
                                         </div>
