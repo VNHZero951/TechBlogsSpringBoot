@@ -277,7 +277,7 @@
                                 <img th:src="@{/upload/__${newpost3.image}__}" alt="">
                                 <div class="post-content">
                                     <a th:href="${'/category/' + newpost3.getCategory().id}" class="post-cata" th:text="${newpost3.category.title}"></a>
-                                    <a th:href="@{/view/__${newpost3.id}__}" class="post-title" th:text="${newpost3.title}"></a>
+                                    <a id="scrollPage" th:href="@{/view/__${newpost3.id}__}" class="post-title" th:text="${newpost3.title}"></a>
                                     <div class="post-meta d-flex">
                                         <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
                                         <a href="#"><i class="fa fa-eye" aria-hidden="true"></i><span th:text="${newpost3.getNumberView()}"></span></a>
@@ -290,7 +290,7 @@
 
                     <!-- Single Post Area -->
                     <th:block th:each="data,iter : ${data}">
-                        <div id="page" class="single-post-area mb-30">
+                        <div class="single-post-area mb-30">
                             <div class="row align-items-center">
                                 <div class="col-12 col-lg-6">
                                     <!-- Post Thumbnail -->
@@ -322,7 +322,7 @@
                     <th:block>
                         <ul class="pagination justify-content-center">
                             <li class="page-item" th:each="i : ${#numbers.sequence(0,data.totalPages - 1 )}">
-                                <a th:href="|@{/(page=${i} + # + 'page')}" th:text="${i}|" class="page-link"></a>
+                                <a th:href="@{#scrollPage/(page=${i})}" th:text="${i}" class="page-link"></a>
                             </li>
                         </ul>
                     </th:block>
