@@ -44,14 +44,14 @@ public class Post {
     @Column(nullable = false)
     @NotNull
     @NotEmpty
-    @Size(min = 5, max = 5000, message
-            = "description min 5 characters and max 5000")
+    @Size(min = 5, message
+            = "description min 5 characters")
     private String description;
 
     @Column(nullable = false)
     @NotNull
     @NotEmpty
-    @Size(min = 5, max = 5000, message
+    @Size(min = 5, message
             = "Content min 5 characters and max 5000")
     private String content;
 
