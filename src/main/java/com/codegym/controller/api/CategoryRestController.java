@@ -34,7 +34,7 @@ public class CategoryRestController {
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/category/", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/category", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Category> createCategory(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
         try {
             categorySevice.save(category);
