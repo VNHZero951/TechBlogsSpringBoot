@@ -188,7 +188,7 @@
                                         <!-- Post Content -->
                                         <div class="post-content">
                                             <a th:href="${'/category/' + first3post.getCategory().id}" class="post-cata cata-sm cata-success" th:text="${first3post.category.title}"></a>
-                                            <a th:href="@{/view/__${first3post.id}__}" class="post-title" th:text="${first3post.title}"></a>
+                                            <a th:href="@{/view/__${first3post.id}__}" class="post-title" th:text="${first3post.title}" style="height: 100px"></a>
                                             <div class="post-meta d-flex">
                                                 <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
                                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i><span th:text="${first3post.getNumberView()}"></span></a>
@@ -236,7 +236,7 @@
                                         <!-- Post Content -->
                                         <div class="post-content">
                                             <a th:href="${'/category/' + first3postid3.getCategory().id}" class="post-cata cata-sm cata-success" th:text="${first3postid3.category.title}"></a>
-                                            <a th:href="@{/view/__${first3postid3.id}__}" class="post-title" th:text="${first3postid3.title}"></a>
+                                            <a th:href="@{/view/__${first3postid3.id}__}" class="post-title" th:text="${first3postid3.title}" style="height: 150px"></a>
                                             <div class="post-meta d-flex">
                                                 <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 14</a>
                                                 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i><span th:text="${first3postid3.getNumberView()}"></span></a>
