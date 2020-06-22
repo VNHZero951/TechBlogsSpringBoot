@@ -19,10 +19,10 @@ public class AdminController {
     public String admin() {
         return "admin/index";
     }
-    @GetMapping("/")
-    public String home() {
-        return "user/index";
-    }
+//    @GetMapping("/")
+//    public String home() {
+//        return "user/index";
+//    }
 
     @GetMapping("admin/message")
     public String message() {
