@@ -1,6 +1,7 @@
 package com.codegym.controller.api;
 
 import com.codegym.model.Category;
+import com.codegym.model.Tag;
 import com.codegym.services.impl.CategorySeviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,16 +34,15 @@ public class CategoryRestController {
         return new ResponseEntity<Category>(category, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/category/")
+    @RequestMapping(value = "/category/", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Category> createCategory(@RequestBody Category category, UriComponentsBuilder ucBuilder) {
         try {
             categorySevice.save(category);
             return new ResponseEntity<Category>(category, HttpStatus.OK);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             return new ResponseEntity<Category>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @PutMapping(value = "/category/{id}")
     public ResponseEntity<Category> updateCategory(@Valid @PathVariable("id") long id, @RequestBody Category category) {
 
