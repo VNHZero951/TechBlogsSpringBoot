@@ -156,7 +156,7 @@
     messages.intTable = function(){
         $("#messages-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/messages/',
+                url: 'https://techblogsvn.herokuapp.com/api/messages/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -210,7 +210,7 @@
     }
     messages.initPostContent = function(){
         $.ajax({
-            url : "http://localhost:8080/api/postContent",
+            url : "https://techblogsvn.herokuapp.com/api/postContent",
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -227,7 +227,7 @@
     messages.get = function (id) {
         console.log('get:'+id);
         $.ajax({
-            url : "http://localhost:8080/api/messages/" + id,
+            url : "https://techblogsvn.herokuapp.com/api/messages/" + id,
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -259,7 +259,7 @@
                 messagesObj.post = postContentObj;
                 //
                 $.ajax({
-                    url: "http://localhost:8080/api/messages/",
+                    url: "https://techblogsvn.herokuapp.com/api/messages/",
                     method: "POST",
                     dataType: "json",
                     contentType: "application/json",
@@ -295,7 +295,7 @@
                 messagesObj.post = postContentObj;
 
                 $.ajax({
-                    url: "http://localhost:8080/api/messages/" + messagesObj.id,
+                    url: "https://techblogsvn.herokuapp.com/api/messages/" + messagesObj.id,
                     method: "PUT",
                     dataType: "json",
                     contentType: "application/json",
@@ -321,7 +321,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: "http://localhost:8080/api/messages/" + id,
+                        url: "https://techblogsvn.herokuapp.com/api/messages/" + id,
                         method: "DELETE",
                         dataType: "json",
                         success: function (data) {

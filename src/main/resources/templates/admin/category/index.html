@@ -169,7 +169,8 @@
     category.intTable = function() {
         $("#tblCategory").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/category',
+                // url: 'http://localhost:8080/api/category',
+                url: 'https://techblogsvn.herokuapp.com/api/category',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -191,7 +192,8 @@
     };
     category.initCategory = function(){
         $.ajax({
-            url : "http://localhost:8080/api/category/",
+            // url : "http://localhost:8080/api/category/",
+            url: 'https://techblogsvn.herokuapp.com/api/category',
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -232,7 +234,8 @@
     category.get = function (id) {
         console.log('get:' + id);
         $.ajax({
-            url : "http://localhost:8080/api/category/" + id,
+            // url : "http://localhost:8080/api/category/" + id,
+            url: 'https://techblogsvn.herokuapp.com/api/category',+id
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -261,7 +264,8 @@
                 // messagesObj.postContent = postContentObj;
 
                 $.ajax({
-                    url: "http://localhost:8080/api/category/",
+                    // url: "http://localhost:8080/api/category/",
+                    url: 'https://techblogsvn.herokuapp.com/api/category',
                     method: "POST",
                     dataType: "json",
                     contentType: "application/json",
@@ -292,7 +296,8 @@
                 // messagesObj.postContent = postContentObj;
 
                 $.ajax({
-                    url: "http://localhost:8080/api/category/" + categoryObj.id,
+                    // url: "http://localhost:8080/api/category/" + categoryObj.id,
+                    url: 'https://techblogsvn.herokuapp.com/api/category' + categoryObj.id,
                     method: "PUT",
                     dataType: "json",
                     contentType: "application/json",
@@ -322,7 +327,8 @@
             callback: function (result) {
                 if(result){
                     $.ajax({
-                        url : "http://localhost:8080/api/category/" + id,
+                        // url : "http://localhost:8080/api/category/" + id,
+                        url: 'https://techblogsvn.herokuapp.com/api/category'+id,
                         method: "DELETE",
                         dataType : "json",
                         success : function(data){
@@ -348,7 +354,9 @@
 </script>
 <script>
         $.ajax({
-            url: 'http://localhost:8080/api/postContent',
+            // url: 'http://localhost:8080/api/postContent',
+            url: 'https://techblogsvn.herokuapp.com/api/postContent',
+
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""

@@ -100,7 +100,7 @@
     tags.intTable = function(){
         $("#tags-datatables").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/tags/',
+                url: 'https://techblogsvn.herokuapp.com/api/tags/',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -148,7 +148,7 @@
     tags.get = function (id) {
         console.log('get:'+id);
         $.ajax({
-            url : "http://localhost:8080/api/tags/" + id,
+            url : "https://techblogsvn.herokuapp.com/api/tags/" + id,
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -172,7 +172,7 @@
                 console.log(tagsObj)
                 //
                 $.ajax({
-                    url: "http://localhost:8080/api/tags/",
+                    url: "https://techblogsvn.herokuapp.com/api/tags/",
                     method: "POST",
                     dataType: "json",
                     contentType : "application/json",
@@ -199,7 +199,7 @@
                 tagsObj.title = $('#title').val();
                 tagsObj.id = $('#id').val();
                 $.ajax({
-                    url: "http://localhost:8080/api/tags/" + tagsObj.id,
+                    url: "https://techblogsvn.herokuapp.com/api/tags/" + tagsObj.id,
                     method: "PUT",
                     dataType: "json",
                     contentType: "application/json",
@@ -253,7 +253,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: "http://localhost:8080/api/tags/" + id,
+                        url: "https://techblogsvn.herokuapp.com/api/tags/" + id,
                         method: "DELETE",
                         dataType: "json",
                         success: function (data) {

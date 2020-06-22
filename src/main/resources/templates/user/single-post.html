@@ -183,7 +183,7 @@
     var like = function () {
         let idPost = $('#idPost').val()
         $.ajax({
-            url: `http://localhost:8080/api/like/` + idPost,
+            url: `https://techblogsvn.herokuapp.com/api/like/` + idPost,
             method: `GET`,
             dataType: `json`,
             contentType: 'json',
@@ -198,7 +198,7 @@
     messages.get = function () {
         let id = $('#id').val();
         $.ajax({
-            url: `http://localhost:8080/api/messagesS/` + id,
+            url: `https://techblogsvn.herokuapp.com/api/messagesS/` + id,
             method: `GET`,
             dataType: `json`,
             contentType: 'json',
@@ -283,7 +283,7 @@
 
 
         $.ajax({
-            url: "http://localhost:8080/api/messages/",
+            url: "https://techblogsvn.herokuapp.com/api/messages/",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(messagesObj),
