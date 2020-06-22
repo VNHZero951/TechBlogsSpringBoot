@@ -296,7 +296,7 @@
 
                 $.ajax({
                     // url: "https://localhost:8080/api/category/" + categoryObj.id,
-                    url: 'https://techblogsvn.herokuapp.com/api/category' + categoryObj.id,
+                    url: 'https://techblogsvn.herokuapp.com/api/category/' + categoryObj.id,
                     method: "PUT",
                     dataType: "json",
                     contentType: "application/json",
@@ -355,7 +355,7 @@
                         method: "DELETE",
                         dataType: "json",
                         success: function (data) {
-                            $("#tags-datatables").DataTable().ajax.reload();
+                            $("#tblCategory").DataTable().ajax.reload();
                             swal("Poof! Your imaginary file has been deleted!", {
                                 icon: "success",
                             });
