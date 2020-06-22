@@ -163,6 +163,7 @@
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>-->
 <!--Data Tables js-->
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 <script>
     var category = {} || category;
@@ -277,8 +278,9 @@
                     success: function (data) {
                         console.log("POST success");
                         $('#modalAddEdit').modal('hide');
-                        alertify.success('Created Success');
+                        // alertify.success('Created Success');
                         $("#tblCategory").DataTable().ajax.reload();
+                        swal("Good job!", "You Save DONE", "success");
                     }
                 });
             } else {
@@ -301,41 +303,71 @@
                     data: JSON.stringify(categoryObj),
                     success: function (data) {
                         $('#modalAddEdit').modal('hide');
-                        alertify.success('Edited Success');
+                        // alertify.success('Edited Success');
                         $("#tblCategory").DataTable().ajax.reload();
+                        swal("Good job!", "You Save DONE", "success");
                     }
                 });
             }
         }
     };
 
+    // category.delete = function(id){
+    //     bootbox.confirm({
+    //         title: "Remove Category",
+    //         message: "Do you want to remove this title?",
+    //         buttons: {
+    //             confirm: {
+    //                 label: '<i class="fa fa-check"></i> Yes'
+    //             },
+    //             cancel: {
+    //                 label: '<i class="fa fa-times"></i> No'
+    //             }
+    //         },
+    //         callback: function (result) {
+    //             if(result){
+    //                 $.ajax({
+    //                     // url : "https://localhost:8080/api/category/" + id,
+    //                     url: 'https://techblogsvn.herokuapp.com/api/category' + id,
+    //                     method: "DELETE",
+    //                     dataType : "json",
+    //                     success : function(data){
+    //                         alertify.success('Deleted Success');
+    //                         $("#tblCategory").DataTable().ajax.reload();
+    //                     }
+    //                 });
+    //             }
+    //         }
+    //     })
+    // };
     category.delete = function(id){
-        bootbox.confirm({
-            title: "Remove Category",
-            message: "Do you want to remove this title?",
-            buttons: {
-                confirm: {
-                    label: '<i class="fa fa-check"></i> Yes'
-                },
-                cancel: {
-                    label: '<i class="fa fa-times"></i> No'
-                }
-            },
-            callback: function (result) {
-                if(result){
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
                     $.ajax({
-                        // url : "https://localhost:8080/api/category/" + id,
-                        url: 'https://techblogsvn.herokuapp.com/api/category' + id,
+                        url: "https://techblogsvn.herokuapp.com/api/category/" + id,
                         method: "DELETE",
-                        dataType : "json",
-                        success : function(data){
-                            alertify.success('Deleted Success');
-                            $("#tblCategory").DataTable().ajax.reload();
+                        dataType: "json",
+                        success: function (data) {
+                            $("#tags-datatables").DataTable().ajax.reload();
+                            swal("Poof! Your imaginary file has been deleted!", {
+                                icon: "success",
+                            });
+                        },
+                        error: function () {
+                            console.log("Delete Error")
                         }
                     });
+                } else {
+                    swal("Your imaginary file is safe!");
                 }
-            }
-        })
+            })
     };
 
 </script>
