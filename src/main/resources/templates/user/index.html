@@ -322,7 +322,7 @@
                     <th:block>
                         <ul class="pagination justify-content-center">
                             <li class="page-item" th:each="i : ${#numbers.sequence(0,data.totalPages - 1 )}">
-                                <a th:href="@{#scrollPage/(page=${i})}" th:text="${i}" class="page-link"></a>
+                                <a th:href="@{/#scrollPage(page=${i})}" th:text="${i}" class="page-link"></a>
                             </li>
                         </ul>
                     </th:block>
