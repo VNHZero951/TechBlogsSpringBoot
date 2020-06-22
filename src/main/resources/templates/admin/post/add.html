@@ -102,8 +102,7 @@
                                     <div class="form-group row ">
                                         <label class="control-label col-md-3 col-sm-3 ">Description</label>
                                         <div class="col-md-9 col-sm-9 ">
-                                            <textarea class="form-control" required placeholder="Description"
-                                                      maxlength="500" th:field="*{description}" rows="3"></textarea>
+                                            <textarea class="form-control" required placeholder="Description" minlength="5" th:field="*{description}" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -111,7 +110,7 @@
                                             <label for="content" class=" form-control-label">Content</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <textarea id="content" class="form-control" required placeholder="Content" th:field="*{content}" rows="3"></textarea>
+                                            <textarea id="content" class="form-control" required placeholder="Content" minlength="5" th:field="*{content}" rows="3"></textarea>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
