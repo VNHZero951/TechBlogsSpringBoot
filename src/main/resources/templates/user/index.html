@@ -290,7 +290,7 @@
 
                     <!-- Single Post Area -->
                     <th:block th:each="data,iter : ${data}">
-                        <div class="single-post-area mb-30">
+                        <div id="page" class="single-post-area mb-30">
                             <div class="row align-items-center">
                                 <div class="col-12 col-lg-6">
                                     <!-- Post Thumbnail -->
@@ -322,7 +322,7 @@
                     <th:block>
                         <ul class="pagination justify-content-center">
                             <li class="page-item" th:each="i : ${#numbers.sequence(0,data.totalPages - 1 )}">
-                                <a th:href="@{/(page=${i})}" th:text="${i}" class="page-link"></a>
+                                <a th:href="@{/(page=${i})} +'#page'" th:text="${i}" class="page-link"></a>
                             </li>
                         </ul>
                     </th:block>
