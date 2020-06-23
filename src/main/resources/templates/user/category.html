@@ -125,7 +125,7 @@
                                 <ul class="pagination justify-content-center">
                                     <span class="page-item" th:if="${dev.hasPrevious()}"><a class="page-link "th:href="@{/category/1/(page=${dev.number - 1})}">Previous</a></span>
                                     <li class="page-item" th:each="i : ${#numbers.sequence(0,dev.totalPages - 1 )}">
-                                        <a th:href="@{/category/1/(page=${i})}" th:text="${i}" class="page-link"></a>
+                                        <a th:href="@{/category/1/(page=${i})}" th:text="${i+1}" class="page-link"></a>
                                     </li>
                                     <span class="page-item" th:if="${dev.hasNext()}"><a class="page-link" th:href="@{/category/1/(page=${dev.number + 1})}">Next</a></span>
                                 </ul>
@@ -134,7 +134,7 @@
                                 <ul class="pagination justify-content-center">
                                     <span class="page-item" th:if="${tech.hasPrevious()}"><a class="page-link "th:href="@{/category/2/(page=${tech.number - 1})}">Previous</a></span>
                                     <li class="page-item" th:each="i : ${#numbers.sequence(0,tech.totalPages - 1 )}">
-                                        <a th:href="@{/category/2/(page=${i})}" th:text="${i}" class="page-link"></a>
+                                        <a th:href="@{/category/2/(page=${i})}" th:text="${i+1}" class="page-link"></a>
                                     </li>
                                     <span class="page-item" th:if="${tech.hasNext()}"><a class="page-link" th:href="@{/category/2/(page=${tech.number + 1})}">Next</a></span>
                                 </ul>
@@ -143,7 +143,7 @@
                                 <ul class="pagination justify-content-center">
                                     <span class="page-item" th:if="${tools.hasPrevious()}"><a class="page-link "th:href="@{/category/3/(page=${tools.number - 1})}">Previous</a></span>
                                     <li class="page-item" th:each="i : ${#numbers.sequence(0,tools.totalPages - 1 )}">
-                                        <a th:href="@{/category/3/(page=${i})}" th:text="${i}" class="page-link"></a>
+                                        <a th:href="@{/category/3/(page=${i})}" th:text="${i+1}" class="page-link"></a>
                                     </li>
                                     <span class="page-item" th:if="${tools.hasNext()}"><a class="page-link" th:href="@{/category/3/(page=${tools.number + 1})}">Next</a></span>
                                 </ul>
