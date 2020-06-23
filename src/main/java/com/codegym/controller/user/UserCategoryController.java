@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.data.domain.Sort.Direction.DESC;
@@ -42,7 +43,12 @@ public class UserCategoryController {
     @GetMapping("/{category}")
     public ModelAndView tech(@RequestParam(defaultValue = "0") int page,@PathVariable("category") String category){
         ModelAndView modelAndView = new ModelAndView("user/category");
+        List<Post> findmostview = postRepository.findmostview();
+        Page<Post> findnewpostby5 = postRepository.findnewpostby5(PageRequest.of(0,4));
         modelAndView.addObject("layout",categoryRepository.findAll());
+        modelAndView.addObject("findmostview",findmostview);
+        modelAndView.addObject("findnewpostby5",findnewpostby5);
+
         switch (category)
         {
             case "1":
