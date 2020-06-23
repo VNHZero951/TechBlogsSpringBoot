@@ -174,10 +174,6 @@
                             <!-- Single Blog Post -->
                             <th:block th:each="findnewpostby5,iter : ${findnewpostby5}">
                                 <div class="single-post-area mb-30">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img th:src="@{/upload/__${findnewpostby5.image}__}" alt="">
-                                    </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
                                         <a href="#" class="post-cata cata-sm cata-success">Sports</a>
@@ -192,75 +188,9 @@
                             </th:block>
                         </div>
 
-                        <!-- ***** Single Widget ***** -->
-                        <div class="single-widget add-widget mb-50">
-                            <a href="#"><img src="img/bg-img/add.png" alt=""></a>
-                        </div>
 
                         <!-- ***** Sidebar Widget ***** -->
-                        <div class="single-widget youtube-channel-widget mb-50">
-                            <!-- Section Heading -->
-                            <div class="section-heading style-2 mb-30">
-                                <h4>Hot Channels</h4>
-                                <div class="line"></div>
-                            </div>
-
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/25.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Music Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/26.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Trending Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/27.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Travel Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/28.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">Sport Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-
-                            <!-- Single YouTube Channel -->
-                            <div class="single-youtube-channel d-flex align-items-center">
-                                <div class="youtube-channel-thumbnail">
-                                    <img src="img/bg-img/29.jpg" alt="">
-                                </div>
-                                <div class="youtube-channel-content">
-                                    <a href="single-post.html" class="channel-title">TV Show Channel</a>
-                                    <a href="#" class="btn subscribe-btn"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Subscribe</a>
-                                </div>
-                            </div>
-                        </div>
-
+                        <div th:replace="user/layout::hotchannel"></div>
                         <!-- ***** Single Widget ***** -->
                         <div class="single-widget newsletter-widget mb-50">
                             <!-- Section Heading -->
