@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -9,103 +8,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>TopDev Blogs | Blog IT dành cho Developers</title>
-    <th:block th:replace="/user/layout::link">
+    <th:block th:replace="user/layout::link">
     </th:block>
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div th:replace="/user/layout::preloader"></div>
-    <div th:replace="/user/layout::navbar"></div>
+<div th:replace="user/layout::preloader"></div>
+<div th:replace="user/layout::navbar"></div>
 
-    <!-- ##### Header Area Start ##### -->
+<!-- ##### Breadcrumb Area Start ##### -->
+<div class="vizew-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="/contact">Contact</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
 
-    <!-- ##### Header Area End ##### -->
+<!-- ##### Contact Area Start ##### -->
+<section class="contact-area mb-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-7 col-lg-8">
+                <!-- Section Heading -->
+                <div class="section-heading style-2">
+                    <h4>Contact</h4>
+                    <div class="line"></div>
+                </div>
 
-    <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="vizew-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                        </ol>
-                    </nav>
+                <p>Blog Dev là một cộng đồng những lập trình viên giàu kinh nghiệm mong muốn chia sẻ những kiến thức, kinh nghiệm quý giá trong quá trình làm việc nhằm giúp các bạn học sinh, sinh viên nhanh chóng tiếp cận công nghệ mới.</p>
+
+                <!-- Contact Form Area -->
+                <div class="contact-form-area mt-50">
+                    <form th:action="@{/contact}" method="post" th:object="${contact}">
+                        <div class="form-group">
+                            <label for="name">Name*</label>
+                            <input type="text" class="form-control" id="name" th:field="*{guestName}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message*</label>
+                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" th:field="*{text}" required></textarea>
+                        </div>
+                        <button class="btn vizew-btn mt-30" type="submit">Send Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5 col-lg-4">
+                <div class="sidebar-area">
+                    <!-- ***** Single Widget ***** -->
+                    <div class="single-widget newsletter-widget mb-50">
+                        <!-- Section Heading -->
+                        <div class="section-heading style-2 mb-30">
+                            <h4>Newsletter</h4>
+                            <div class="line"></div>
+                        </div>
+                        <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
+                        <!-- Newsletter Form -->
+                        <div class="newsletter-form">
+                            <form action="#" method="post">
+                                <input type="email" name="nl-email" class="form-control mb-15" id="emailnl" placeholder="Enter your email">
+                                <button disabled type="submit" class="btn vizew-btn w-100">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- ***** Single Widget ***** -->
+                    <div th:replace="user/layout::widget"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Breadcrumb Area End ##### -->
+</section>
+<!-- ##### Contact Area End ##### -->
 
-    <!-- ##### Contact Area Start ##### -->
-    <section class="contact-area mb-80">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-7 col-lg-8">
-                    <!-- Section Heading -->
-                    <div class="section-heading style-2">
-                        <h4>Contact</h4>
-                        <div class="line"></div>
-                    </div>
+<footer th:replace="user/layout::views-footer"></footer>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-                    <!-- Contact Form Area -->
-                    <div class="contact-form-area mt-50">
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <label for="name">Name*</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email*</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message*</label>
-                                <textarea name="message" class="form-control" id="message" cols="30" rows="10"></textarea>
-                            </div>
-                            <button class="btn vizew-btn mt-30" type="submit">Send Now</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-5 col-lg-4">
-                    <div class="sidebar-area">
-                        <!-- ***** Single Widget ***** -->
-                        <div class="single-widget newsletter-widget mb-50">
-                            <!-- Section Heading -->
-                            <div class="section-heading style-2 mb-30">
-                                <h4>Newsletter</h4>
-                                <div class="line"></div>
-                            </div>
-                            <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
-                            <!-- Newsletter Form -->
-                            <div class="newsletter-form">
-                                <form action="#" method="post">
-                                    <input type="email" name="nl-email" class="form-control mb-15" id="emailnl" placeholder="Enter your email">
-                                    <button type="submit" class="btn vizew-btn w-100">Subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- ***** Single Widget ***** -->
-                        <div class="single-widget add-widget">
-                            <a href="#"><img src="img/bg-img/add.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Contact Area End ##### -->
-
-    <!-- ##### Footer Area Start ##### -->
-    <footer th:replace="/user/layout::views-footer"></footer>
-    <th:block th:replace="/user/layout::Javascript">
-    </th:block>
+<th:block th:replace="user/layout::Javascript">
+</th:block>
 </body>
 
 </html>

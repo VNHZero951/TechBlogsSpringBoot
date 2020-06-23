@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -44,7 +46,7 @@ public class PostRestController {
     }
 
     @PutMapping(value = "/postContent/{id}")
-    public ResponseEntity<Post> updatePostContent(@PathVariable("id") long id, @RequestBody Post product) {
+    public ResponseEntity<Post> updatePostContent(@Valid @PathVariable("id") long id, @RequestBody Post product) {
 
         Post post = postContentService.findById(id);
 

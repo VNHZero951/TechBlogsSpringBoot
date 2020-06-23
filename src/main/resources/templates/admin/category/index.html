@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="/admin/layout::header"></head>
-<link href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<head th:replace="admin/layout::header"></head>
+<link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 <!-- JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 <!-- CSS -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 <!-- Default theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 <!-- Semantic UI theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
 <!-- Bootstrap theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 <!--
     RTL version
 -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
 <!-- Default theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
 <!-- Semantic UI theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
 <!-- Bootstrap theme -->
-<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
 <body>
 
 <!-- start loader -->
-<div th:replace="/admin/layout::pageloader"></div>
+<div th:replace="admin/layout::pageloader"></div>
 <!-- end loader -->
 <!-- Start wrapper-->
  <div id="wrapper">
 
-     <div th:replace="/admin/layout::sidebar"></div>
+     <div th:replace="admin/layout::sidebar"></div>
 
      <!--Start topbar header-->
-     <header th:replace="/admin/layout::navbar"></header>
+     <header th:replace="admin/layout::navbar"></header>
      <!--End topbar header-->
 
 <div class="clearfix"></div>
@@ -107,8 +107,8 @@
                                 </div>
                                 <div class="col-9">
                                     <input class="form-control" type="text"
-                                           name="title" id="title" minlength="3" required maxlength="20"
-                                           placeholder="Title">
+                                           name="title" id="title"
+                                           placeholder="Title" required minlength="3" maxlength="20">
                                 </div>
                             </div>
 
@@ -141,15 +141,15 @@
     <!--End Back To Top Button-->
 
      <!--Start footer-->
-     <footer th:replace="/admin/layout::footer"></footer>
+     <footer th:replace="admin/layout::footer"></footer>
      <!--End footer-->
 
      <!--start color switcher-->
-     <div th:replace="/admin/layout::theme"></div>
+     <div th:replace="admin/layout::theme"></div>
      <!--end color switcher-->
 
   </div><!--End wrapper-->
-<th:block th:replace="/admin/layout::Js"></th:block>
+<th:block th:replace="admin/layout::Js"></th:block>
 <!--Data Tables js-->
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>-->
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>-->
@@ -162,14 +162,16 @@
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>-->
 <!--<script src="/assets-admin/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>-->
 <!--Data Tables js-->
-<script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 <script>
     var category = {} || category;
     category.intTable = function() {
         $("#tblCategory").DataTable({
             ajax: {
-                url: 'http://localhost:8080/api/category',
+                // url: 'https://localhost:8080/api/category',
+                url: 'https://techblogsvn.herokuapp.com/api/category',
                 method: "GET",
                 datatype: "json",
                 dataSrc: ""
@@ -191,7 +193,8 @@
     };
     category.initCategory = function(){
         $.ajax({
-            url : "http://localhost:8080/api/category/",
+            // url : "https://localhost:8080/api/category/",
+            url: 'https://techblogsvn.herokuapp.com/api/category',
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -232,7 +235,8 @@
     category.get = function (id) {
         console.log('get:' + id);
         $.ajax({
-            url : "http://localhost:8080/api/category/" + id,
+            // url : "https://localhost:8080/api/category/" + id,
+            url: 'https://techblogsvn.herokuapp.com/api/category/' +id ,
             method : "GET",
             dataType : "json",
             success : function(data){
@@ -250,7 +254,6 @@
         if ($("#formAddEdit")) {
             if ($('#id').val() == 0) {
                 var categoryObj = {};
-                categoryObj.id = $('#id').val();
                 categoryObj.title = $('#title').val();
 
 
@@ -261,7 +264,8 @@
                 // messagesObj.postContent = postContentObj;
 
                 $.ajax({
-                    url: "http://localhost:8080/api/category/",
+                    // url: "https://localhost:8080/api/category/",
+                    url: 'https://techblogsvn.herokuapp.com/api/category/' ,
                     method: "POST",
                     dataType: "json",
                     contentType: "application/json",
@@ -269,15 +273,14 @@
                     done: function () {
                         console.log("POST DONE");
                         $('#modalAddEdit').modal('hide');
-
                         $("#tblCategory").DataTable().ajax.reload();
                     },
                     success: function (data) {
                         console.log("POST success");
                         $('#modalAddEdit').modal('hide');
-                        alertify.success('Created Success');
+                        // alertify.success('Created Success');
                         $("#tblCategory").DataTable().ajax.reload();
-
+                        swal("Good job!", "You Save DONE", "success");
                     }
                 });
             } else {
@@ -292,47 +295,79 @@
                 // messagesObj.postContent = postContentObj;
 
                 $.ajax({
-                    url: "http://localhost:8080/api/category/" + categoryObj.id,
+                    // url: "https://localhost:8080/api/category/" + categoryObj.id,
+                    url: 'https://techblogsvn.herokuapp.com/api/category/' + categoryObj.id,
                     method: "PUT",
                     dataType: "json",
                     contentType: "application/json",
                     data: JSON.stringify(categoryObj),
                     success: function (data) {
                         $('#modalAddEdit').modal('hide');
-                        alertify.success('Edited Success');
+                        // alertify.success('Edited Success');
                         $("#tblCategory").DataTable().ajax.reload();
+                        swal("Good job!", "You Save DONE", "success");
                     }
                 });
             }
         }
     };
 
+    // category.delete = function(id){
+    //     bootbox.confirm({
+    //         title: "Remove Category",
+    //         message: "Do you want to remove this title?",
+    //         buttons: {
+    //             confirm: {
+    //                 label: '<i class="fa fa-check"></i> Yes'
+    //             },
+    //             cancel: {
+    //                 label: '<i class="fa fa-times"></i> No'
+    //             }
+    //         },
+    //         callback: function (result) {
+    //             if(result){
+    //                 $.ajax({
+    //                     // url : "https://localhost:8080/api/category/" + id,
+    //                     url: 'https://techblogsvn.herokuapp.com/api/category' + id,
+    //                     method: "DELETE",
+    //                     dataType : "json",
+    //                     success : function(data){
+    //                         alertify.success('Deleted Success');
+    //                         $("#tblCategory").DataTable().ajax.reload();
+    //                     }
+    //                 });
+    //             }
+    //         }
+    //     })
+    // };
     category.delete = function(id){
-        bootbox.confirm({
-            title: "Remove Category",
-            message: "Do you want to remove this title?",
-            buttons: {
-                confirm: {
-                    label: '<i class="fa fa-check"></i> Yes'
-                },
-                cancel: {
-                    label: '<i class="fa fa-times"></i> No'
-                }
-            },
-            callback: function (result) {
-                if(result){
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
                     $.ajax({
-                        url : "http://localhost:8080/api/category/" + id,
+                        url: "https://techblogsvn.herokuapp.com/api/category/" + id,
                         method: "DELETE",
-                        dataType : "json",
-                        success : function(data){
-                            alertify.success('Deleted Success');
+                        dataType: "json",
+                        success: function (data) {
                             $("#tblCategory").DataTable().ajax.reload();
+                            swal("Poof! Your imaginary file has been deleted!", {
+                                icon: "success",
+                            });
+                        },
+                        error: function () {
+                            console.log("Delete Error")
                         }
                     });
+                } else {
+                    swal("Your imaginary file is safe!");
                 }
-            }
-        })
+            })
     };
 
 </script>
@@ -346,6 +381,19 @@
         category.init();
     } );
 </script>
+<!--<script>-->
+<!--        $.ajax({-->
+<!--            // url: 'https://localhost:8080/api/postContent',-->
+<!--            url: 'https://techblogsvn.herokuapp.com/api/postContent',-->
 
+<!--                method: "GET",-->
+<!--                datatype: "json",-->
+<!--                dataSrc: ""-->
+<!--        }).done(-->
+<!--            function (data) {-->
+<!--                console.log(data[0].content);-->
+<!--            }-->
+<!--        );-->
+<!--</script>-->
 </body>
 </html>

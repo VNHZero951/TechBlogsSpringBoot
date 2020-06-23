@@ -21,24 +21,6 @@ import java.nio.file.Paths;
 @Controller
 public class MainController {
 
-    @Autowired
-    private Environment env;
-
-//    @GetMapping("/")
-//    public String index() {
-//        return "index";
-//    }
-
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin/index";
-    }
-
-    @GetMapping("/contact")
-    public String contact() {
-        return "user/contact";
-    }
-
     @GetMapping("/403")
     public String accessDenied() {
         return "error/pages-403";

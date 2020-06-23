@@ -17,13 +17,5 @@ public class HomeController {
     @Autowired
     private CategorySeviceImpl categorySevice;
 
-    @GetMapping("/")
-    public ModelAndView homePage() {
-
-        ModelAndView modelAndView = new ModelAndView("user/index");
-        modelAndView.addObject("layout",categorySevice.findAll());
-        return modelAndView;
-    }
-
 
 }

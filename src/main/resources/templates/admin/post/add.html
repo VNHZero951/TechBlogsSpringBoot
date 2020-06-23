@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="/admin/layout::header">
+<head th:replace="admin/layout::header">
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
@@ -33,15 +33,15 @@
 <body>
 
 <!-- start loader -->
-<div th:replace="/admin/layout::pageloader"></div>
+<div th:replace="admin/layout::pageloader"></div>
 <!-- end loader -->
 <!-- Start wrapper-->
 <div id="wrapper">
 
-    <div th:replace="/admin/layout::sidebar"></div>
+    <div th:replace="admin/layout::sidebar"></div>
 
     <!--Start topbar header-->
-    <header th:replace="/admin/layout::navbar"></header>
+    <header th:replace="admin/layout::navbar"></header>
     <!--End topbar header-->
 
     <div class="clearfix"></div>
@@ -102,8 +102,7 @@
                                     <div class="form-group row ">
                                         <label class="control-label col-md-3 col-sm-3 ">Description</label>
                                         <div class="col-md-9 col-sm-9 ">
-                                            <textarea class="form-control" required placeholder="Description"
-                                                      maxlength="500" th:field="*{description}" rows="3"></textarea>
+                                            <textarea class="form-control" required placeholder="Description" minlength="5" th:field="*{description}" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -111,7 +110,7 @@
                                             <label for="content" class=" form-control-label">Content</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <textarea id="content" class="form-control" required placeholder="Content" th:field="*{content}" rows="3"></textarea>
+                                            <textarea id="content" class="form-control" required placeholder="Content" minlength="5" th:field="*{content}" rows="3"></textarea>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -119,7 +118,7 @@
                                         <div class="form-group row ">
                                             <label class="control-label col-md-3 col-sm-3 ">Current Image</label>
                                             <div class="col-md-9 col-sm-9 ">
-                                                <input type="hidden" th:field="*{image}" class="form-control">
+                                                <input type="hidden" th:field="*{image}" accept="image/*" class="form-control">
                                                 <img th:src="@{/upload/__*{image}__}" class="image" height="120">
                                             </div>
                                         </div>
@@ -182,11 +181,11 @@
 <!--End footer-->
 
 <!--start color switcher-->
-<div th:replace="/admin/layout::theme"></div>
+<div th:replace="admin/layout::theme"></div>
 <!--end color switcher-->
 
 </div><!--End wrapper-->
-<th:block th:replace="/admin/layout::Js"></th:block>
+<th:block th:replace="admin/layout::Js"></th:block>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>

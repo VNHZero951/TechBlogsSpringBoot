@@ -5,10 +5,12 @@ import com.codegym.repository.UserRepository;
 import com.codegym.services.BaseServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UserDetailImpl implements BaseServices<User> {
 
     @Autowired

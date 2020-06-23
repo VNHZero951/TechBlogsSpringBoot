@@ -1,5 +1,7 @@
 package com.codegym.controller.api;
+import com.codegym.model.Post;
 import com.codegym.model.Tag;
+import com.codegym.services.impl.PostContentServiceImpl;
 import com.codegym.services.impl.TagServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,9 @@ import java.util.List;
 public class TagRestController {
     @Autowired
     private TagServiceImpl tagService;
+
+    @Autowired
+    private PostContentServiceImpl postContentService;
     @GetMapping("/tags/")
     private ResponseEntity<List<Tag>> listTags() {
         List<Tag> tags = tagService.findAll();
@@ -69,11 +74,11 @@ public class TagRestController {
 //        tagService.save(tag);
 //        return tag;
 //    }
-//    @GetMapping(value = "/like/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<PostContent> like(@PathVariable("id") long id) {
-//        PostContent postContent = postContentService.findById(id);
-//        postContent.setNumberLike(postContent.getNumberLike()+1);
-//        postContentService.save(postContent);
-//        return new ResponseEntity<PostContent>(postContent, HttpStatus.OK);
-//    }
+    @GetMapping(value = "/like/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Post> like(@PathVariable("id") long id) {
+        Post postContent = postContentService.findById(id);
+        postContent.setNumberLike(postContent.getNumberLike()+1);
+        postContentService.save(postContent);
+        return new ResponseEntity<Post>(postContent, HttpStatus.OK);
+    }
 }

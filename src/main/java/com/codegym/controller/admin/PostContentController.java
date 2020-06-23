@@ -23,6 +23,7 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -98,7 +99,7 @@ public class PostContentController extends AdminBaseController {
         return modelAndView;
     }
     @PostMapping("/post/add")
-    public ModelAndView saveAddForm(HttpServletRequest request,@ModelAttribute("post") Post post,@RequestParam("tags")Long[] listTag){
+    public ModelAndView saveAddForm(HttpServletRequest request,@Valid @ModelAttribute("post") Post post,@RequestParam("tags")Long[] listTag){
         //
         List<Category> categoryList = categorySevice.findAll();
         //
@@ -165,7 +166,7 @@ public class PostContentController extends AdminBaseController {
         return  modelAndView;
     }
     @PostMapping("/post/edit")
-    public ModelAndView saveEditForm(HttpServletRequest request,@ModelAttribute("post") Post post,@RequestParam("tags")Long[] listTag){
+    public ModelAndView saveEditForm(HttpServletRequest request,@Valid @ModelAttribute("post") Post post, @RequestParam("tags")Long[] listTag){
         //
         String uploadRootPath = request.getServletContext().getRealPath("upload");
         System.out.println("uploadRootPath=" + uploadRootPath);
@@ -238,7 +239,7 @@ public class PostContentController extends AdminBaseController {
             }
         }
 
-        ModelAndView modelAndView = new ModelAndView("/admin/post/add");
+        ModelAndView modelAndView = new ModelAndView("admin/post/add");
         modelAndView.addObject("addPost",post);
         modelAndView.addObject("categoryList",categorySevice.findAll());
         modelAndView.addObject("action",ACTION_EDIT);
@@ -274,7 +275,7 @@ public class PostContentController extends AdminBaseController {
             return  modelAndView;
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error/pages-404");
+            ModelAndView modelAndView = new ModelAndView("error/pages-404");
             return modelAndView;
         }
 
@@ -295,7 +296,7 @@ public class PostContentController extends AdminBaseController {
             modelAndView.addObject("title",TITLE_DELETE);
             return modelAndView;
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error/pages-404");
+            ModelAndView modelAndView = new ModelAndView("error/pages-404");
             return modelAndView;
         }
     }

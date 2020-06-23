@@ -11,6 +11,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -25,9 +26,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false,columnDefinition="varchar(500)")
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
+    @Size(min = 5, message
+            = "Title min 5 characters and max 30")
     private String title;
 
     @ColumnDefault("0")
@@ -38,19 +41,22 @@ public class Post {
     @Column(nullable = false)
     private Long numberLike;
 
-    @Column(nullable = false,columnDefinition="LONGTEXT")
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
+    @Size(min = 5, message
+            = "description min 5 characters")
     private String description;
 
-    @Column(nullable = false,columnDefinition="LONGTEXT")
+    @Column(nullable = false)
     @NotNull
     @NotEmpty
+    @Size(min = 5, message
+            = "Content min 5 characters and max 5000")
     private String content;
 
     private String image;
 
-    @Column(columnDefinition="DATETIME")
     private LocalDateTime Date;
 
     @Transient
